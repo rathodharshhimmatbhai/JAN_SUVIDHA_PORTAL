@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {{!--
+  <meta http-equiv="Content-Security-Policy"
+    content="Content-Security-Policy: default-src 'self' http://localhost:9000;"> --}}
+
+  <title>Jan Suvidha Portal</title>
+  <!-- Favicon-->
+  <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+  <!-- Font Awesome icons (free version)-->
+  <script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" crossorigin="anonymous"></script>
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
+    type="text/css" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="css/index-styles.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body id="page-top">
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="#page-top">Jan Suvidha Portal</a>
+      <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button"
+        data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive"
+        aria-expanded="false" aria-label="Toggle navigation">
+        Menu <i class="fas fa-bars"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Schemes</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a>
+          </li>
+          <li class="nav-item mx-0 mx-lg-1">
+            <a class="nav-link py-3 px-0 px-lg-3 rounded" href="login">
+              {{login}} {{user}}
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Masthead-->
+  <header class="masthead bg-primary text-white text-center">
+    <div class="container d-flex align-items-center flex-column">
+      <!-- Masthead Avatar Image-->
+      <img class="masthead-avatar mb-5" src="../assets/img/avataaars.svg" alt="..." />
+      <!-- Masthead Heading-->
+      <h1 class="masthead-heading text-uppercase mb-0">
+        Welcome To Jan Suvidha Portal
+      </h1>
+      <!-- Icon Divider-->
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+      <!-- Masthead Subheading-->
+      <p class="masthead-subheading font-weight-light mb-0">
+        All the schemes that you qualify for can be found here.
+      </p>
+    </div>
+  </header>
+  <!-- Portfolio Section-->
+  <section class="page-section portfolio" id="portfolio">
+    <div class="container">
+      <!-- Portfolio Section Heading-->
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">
+        Schemes
+      </h2>
+      <!-- Icon Divider-->
+      <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+      <!-- Portfolio Grid Items-->
+      <div class="row justify-content-center">
+        <!-- Portfolio Item 1-->
+        {{#each arr}}
+        <div class="col-md-6 col-lg-4 mb-5">
+          <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal{{idx}}">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" src={{image}} height="200px" width="400px" alt="..." />
+          </div>
+        </div>
+        {{/each}}
+        <!-- Portfolio Item 2-->
+        {{!-- <div class="col-md-6 col-lg-4 mb-5">
+          <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" height="200px" width="300px" src="../schemes/DG.jpg" alt="..." />
+          </div>
+        </div>
+        <!-- Portfolio Item 3-->
+        <div class="col-md-6 col-lg-4 mb-5">
+          <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" height="200px" width="300px" src="../schemes/girls.jpg" alt="..." />
+          </div>
+        </div>
+        <!-- Portfolio Item 4-->
+        <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+          <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" height="200px" width="300px" src="../schemes/h2q.png" alt="..." />
+          </div>
+        </div>
+        <!-- Portfolio Item 5-->
+        <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
+          <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" height="200px" width="300px" src="../schemes/lab.jpg" alt="..." />
+          </div>
+        </div>
+        <!-- Portfolio Item 6-->
+        <div class="col-md-6 col-lg-4">
+          <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
+            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+              <div class="portfolio-item-caption-content text-center text-white">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img class="img-fluid" height="200px" width="300px" src="../schemes/sc.jpg" alt="..." />
+          </div>
+        </div> --}}
+      </div>
+    </div>
+  </section>
+  <!-- About Section-->
+  <section class="page-section bg-primary text-white mb-0" id="about">
+    <div class="container">
+      <!-- About Section Heading-->
+      <h2 class="page-section-heading text-center text-uppercase text-white">
+        About
+      </h2>
+      <!-- Icon Divider-->
+      <div class="divider-custom divider-light">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+      <!-- About Section Content-->
+      <div class="row">
+        <div class="col-lg-4 ms-auto">
+          <p class="lead">
+            Here, in this portal they will find the schemes and scholarship
+            that they can apply on the basis of caste, occupation and income
+            criteria. And it will filter and show the related schemes so that
+            they can apply. Also, the information and the process how to apply
+            will be also shown here in the portal.
+          </p>
+        </div>
+        <div class="col-lg-4 me-auto">
+          <p class="lead">
+            Government provides various schemes for the welfare of the people. But due to lack of knowledge and
+            information people cannot get its benefit. Here they will get maximum benefits of the schemes that they are
+            eligible for and can apply for its maximum gain.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Contact Section-->
+  <section class="page-section" id="contact">
+    <div class="container">
+      <!-- Contact Section Heading-->
+      <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">
+        Contact Me
+      </h2>
+      <!-- Icon Divider-->
+      <div class="divider-custom">
+        <div class="divider-custom-line"></div>
+        <div class="divider-custom-icon">
+          <i class="fas fa-star"></i>
+        </div>
+        <div class="divider-custom-line"></div>
+      </div>
+      <!-- Contact Section Form-->
+      <div class="row justify-content-center">
+        <div class="col-lg-8 col-xl-7">
+          <!-- * * * * * * * * * * * * * * *-->
+          <!-- * * SB Forms Contact Form * *-->
+          <!-- * * * * * * * * * * * * * * *-->
+          <!-- This form is pre-integrated with SB Forms.-->
+          <!-- To make this form functional, sign up at-->
+          <!-- https://startbootstrap.com/solution/contact-forms-->
+          <!-- to get an API token!-->
+          <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+            <!-- Name input-->
+            <div class="form-floating mb-3">
+              <input class="form-control" id="name" type="text" placeholder="Enter your name..."
+                data-sb-validations="required" />
+              <label for="name">Full name</label>
+              <div class="invalid-feedback" data-sb-feedback="name:required">
+                A name is required.
+              </div>
+            </div>
+            <!-- Email address input-->
+            <div class="form-floating mb-3">
+              <input class="form-control" id="email" type="email" placeholder="name@example.com"
+                data-sb-validations="required,email" />
+              <label for="email">Email address</label>
+              <div class="invalid-feedback" data-sb-feedback="email:required">
+                An email is required.
+              </div>
+              <div class="invalid-feedback" data-sb-feedback="email:email">
+                Email is not valid.
+              </div>
+            </div>
+            <!-- Phone number input-->
+            <div class="form-floating mb-3">
+              <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890"
+                data-sb-validations="required" />
+              <label for="phone">Phone number</label>
+              <div class="invalid-feedback" data-sb-feedback="phone:required">
+                A phone number is required.
+              </div>
+            </div>
+            <!-- Message input-->
+            <div class="form-floating mb-3">
+              <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..."
+                style="height: 10rem" data-sb-validations="required"></textarea>
+              <label for="message">Message</label>
+              <div class="invalid-feedback" data-sb-feedback="message:required">
+                A message is required.
+              </div>
+            </div>
+            <!-- Submit success message-->
+            <!---->
+            <!-- This is what your users will see when the form-->
+            <!-- has successfully submitted-->
+            <div class="d-none" id="submitSuccessMessage">
+              <div class="text-center mb-3">
+                <div class="fw-bolder">Form submission successful!</div>
+                To activate this form, sign up at <br />
+                <a
+                  href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+              </div>
+            </div>
+            <!-- Submit error message-->
+            <!---->
+            <!-- This is what your users will see when there is-->
+            <!-- an error submitting the form-->
+            <div class="d-none" id="submitErrorMessage">
+              <div class="text-center text-danger mb-3">
+                Error sending message!
+              </div>
+            </div>
+            <!-- Submit Button-->
+            <button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">
+              Send
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Footer-->
+  <footer class="footer text-center">
+    <div class="container">
+      <div class="row">
+        <!-- Footer Location-->
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <h4 class="text-uppercase mb-4">Location</h4>
+          <p class="lead mb-0">
+            Ahmedabad
+          </p>
+        </div>
+        <!-- Footer Social Icons-->
+        <div class="col-lg-4 mb-5 mb-lg-0">
+          <h4 class="text-uppercase mb-4">Around the Web</h4>
+          <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-facebook-f"></i></a>
+          <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-twitter"></i></a>
+          <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-linkedin-in"></i></a>
+          <a class="btn btn-outline-light btn-social mx-1" href="#!"><i class="fab fa-fw fa-dribbble"></i></a>
+        </div>
+        <!-- Footer About Text-->
+        <div class="col-lg-4">
+          <h4 class="text-uppercase mb-4">About schemes</h4>
+          <p class="lead mb-0">
+            Enjoy all the benefits of schemes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- Copyright Section-->
+  <div class="copyright py-4 text-center text-white">
+    <div class="container">
+      <small>Copyright &copy; Jan Suvidha Portal</small>
+    </div>
+  </div>
+  <!-- Portfolio Modals-->
+  <!-- Portfolio Modal 1-->
+
+  <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center pb-5">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <!-- Portfolio Modal - Title-->
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">
+                  PM KISAN
+                </h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-icon">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Modal - Image-->
+                <img class="img-fluid rounded mb-1" height="200px" width="300px" src="../schemes/PM_KISAN.jpg" alt="..." />
+                <!-- Portfolio Modal - Text-->
+                <p class="mb-4 modals">
+                <p> The Pradhan Mantri Kisan Samman Nidhi Yojana, commonly known as PM-Kisan, is a government
+                  schemelaunched by the Government of India in 2019. The scheme aims to provide financial assistance to
+                  small and marginal farmers in India, by providing them with a minimum income support of Rs. 6,000 per
+                  year</p><br>
+                <p>Under the PM-Kisan scheme, eligible farmers receive direct cash transfers of Rs. 2,000 each, three
+                  times a year, directly into their bank accounts. The scheme is aimed at providing financial
+                  assistanceto farmers for their agricultural needs, including purchasing seeds, fertilizers, and other
+                  necessaryinputs.</p><br>
+                <p>
+                  To be eligible for the PM-Kisan scheme, farmers must have less than 2 hectares of cultivable land, and
+                  must be able to provide proof of ownership of the land. The scheme is also open to certain categories
+                  of farmers who do not own land, such as sharecroppers and tenant farmers.</p><br>
+                <p>
+                  The PM-Kisan scheme is a part of the government's larger effort to improve the welfare of farmers in
+                  India, and to address the issue of agrarian distress in the country.
+                </p><br>
+
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Portfolio Modal 2-->
+  <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center pb-5">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <!-- Portfolio Modal - Title-->
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">
+                  Digital Gujarat
+                </h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-icon">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Modal - Image-->
+                <img class="img-fluid rounded mb-1" height="200px" width="300px" src="../schemes/DG.jpg" alt="..." />
+                <!-- Portfolio Modal - Text-->
+                <p class="mb-4 modals">
+
+                <p>Digital Gujarat is an initiative launched by the Government of Gujarat to provide various government
+                  services to citizens online. The aim of the initiative is to make it easier for citizens to access
+                  government services from anywhere, and at any time, through a single digital platform.</p><br>
+                <p>The Digital Gujarat platform offers a wide range of services to citizens, including access to
+                  government documents such as birth certificates, death certificates, and marriage certificates, as
+                  well as application for various government schemes and services such as ration cards, income
+                  certificates, and driving licenses.</p><br>
+                <p>Citizens can also use the platform to make online payments for government services, such as payment
+                  of utility bills and taxes, and to access various government portals such as the e-Dhara land records
+                  portal and the e-Stamping portal.</p><br>
+                <p>The Digital Gujarat initiative has helped to streamline government services and reduce the time and
+                  effort required by citizens to access them. It has also helped to reduce corruption and improve
+                  transparency in government processes.</p><br>
+
+                <button class="btn btn-primary " href="#!" data-bs-dismiss="modal">
+                  <i class="fas fa-times fa-fw"></i> Close Window
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Portfolio Modal 3-->
+  <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" aria-labelledby="portfolioModal3"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center pb-5">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <!-- Portfolio Modal - Title-->
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">
+                  Beti Bachao, Beti Padhao
+                </h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-icon">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Modal - Image-->
+                <img class="img-fluid rounded mb-1" height="200px" width="300px" src="../schemes/girls.jpg" alt="..." />
+                <!-- Portfolio Modal - Text-->
+                <p class="mb-4 modals">
+
+                <p>'Beti Bachao, Beti Padhao' (Save the Daughter, Educate the Daughter) is a flagship campaign launched
+                  by the Government of India in 2015. The aim of the campaign is to address the issue of declining
+                  female child sex ratio in India, and to promote education and empowerment of girls.</p><br>
+                <p>The campaign seeks to create awareness about the importance of saving and educating the girl child,
+                  and to encourage the adoption of positive practices towards women and girls in Indian society. It is
+                  based on a three-pronged strategy of prevention of gender-biased sex selection protection of girls,
+                  and education and empowerment of girls.</p><br>
+                <p>The Beti Bachao, Beti Padhao campaign includes various initiatives such as awareness campaigns,
+                  community mobilization, training and capacity building, and monitoring and evaluation. The campaign
+                  also includes various schemes and programs aimed at empowering and educating girls, such as
+                  scholarships, vocational training, and financial assistance for higher education.</p><br>
+                <p>The Beti Bachao, Beti Padhao campaign has helped to raise awareness about the issue of gender
+                  inequality in India, and has contributed to a significant increase in the number of girls enrolling in
+                  schools and colleges across the country. It has also helped to promote positive attitudes towards
+                  women and girls, and to reduce gender-based discrimination and violence.</p><br>
+
+
+                </p>
+                <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
+                  <i class="fas fa-times fa-fw"></i> Close Window
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Portfolio Modal 4-->
+  <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" aria-labelledby="portfolioModal6"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center pb-5">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <!-- Portfolio Modal - Title-->
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">
+                  SSIP
+                </h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-icon">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Modal - Image-->
+                <img class="img-fluid rounded mb-1" height="200px" width="300px" src="../schemes/h2q.png" alt="..." />
+                <!-- Portfolio Modal - Text-->
+                <p class="mb-4 modals">
+
+                <p>The State Sector Investment Programme (SSIP) is a scheme launched by the Government of India to
+                  provide financial assistance to state governments for the implementation of various development
+                  projects. The programme aims to support state governments in improving their infrastructure and
+                  services, and in promoting economic growth and development.</p><br>
+                <p>Under the SSIP, the central government provides financial assistance to state governments in the form
+                  of grants and loans for the implementation of various projects in sectors such as transportation,
+                  energy, water supply, and sanitation, among others. The programme is designed to provide flexibility
+                  to state governments in deciding their own priorities for development and in implementing projects
+                  that are tailored to their specific needs.</p><br>
+                <p>The SSIP is an important component of the overall development strategy of the Government of India,
+                  and is aimed at promoting inclusive and sustainable growth across all states and regions of the
+                  country. The programme has helped to improve the quality of infrastructure and services in many
+                  states, and has contributed to the overall economic development of the country.</p><br>
+                <p>Overall, the SSIP is an important initiative that aims to support state governments in their efforts
+                  to promote growth and development, and to create a more equitable and prosperous society for all
+                  citizens.</p><br>
+
+
+                </p>
+                <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
+                  <i class="fas fa-times fa-fw"></i> Close Window
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Portfolio Modal 5-->
+  <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" aria-labelledby="portfolioModal5"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center pb-5">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <!-- Portfolio Modal - Title-->
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">
+                  PMMY
+                </h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-icon">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Modal - Image-->
+                <img class="img-fluid rounded mb-1" height="200px" width="300px" src="../schemes/lab.jpg" alt="..." />
+                <!-- Portfolio Modal - Text-->
+                <p class="mb-4 modals">
+
+                <p>Pradhan Mantri Mudra Yojana (PMMY) is a flagship scheme launched by the Government of India in 2015
+                  to provide financial support to micro and small enterprises (MSEs). The scheme provides loans up to
+                  Rs. 10 lakh to these enterprises through a network of partner institutions, such as banks, non-banking
+                  financial companies (NBFCs), and microfinance institutions (MFIs).</p><br>
+                <p>PMMY aims to promote entrepreneurship and self-employment among individuals from low-income
+                  backgrounds and to help them start and grow their own businesses. The scheme provides loans in three
+                  categories, namely Shishu, Kishor, and Tarun, based on the size and stage of the business.</p><br>
+                <p>The Shishu category covers loans up to Rs. 50,000, while the Kishor category covers loans between Rs.
+                  50,000 and Rs. 5 lakh, and the Tarun category covers loans between Rs. 5 lakh and Rs. 10 lakh. The
+                  loans are provided without any collateral security or guarantor, making it easier for MSEs to access
+                  credit.</p><br>
+                <p>PMMY has been successful in promoting entrepreneurship and self-employment, with over 30 million
+                  loans disbursed under the scheme since its launch. It has also contributed to the growth of the MSME
+                  sector in India and has helped to create employment opportunities for millions of people.</p><br>
+                <p>Overall, PMMY is an important initiative of the Government of India aimed at promoting
+                  entrepreneurship and self-employment among individuals from low-income backgrounds, and has been
+                  instrumental in promoting economic growth and development in the country.</p><br>
+
+
+                </p>
+                <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
+                  <i class="fas fa-times fa-fw"></i> Close Window
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Portfolio Modal 6-->
+  <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" aria-labelledby="portfolioModal4"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center pb-5">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <!-- Portfolio Modal - Title-->
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">
+                  SCSS
+                </h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-icon">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Modal - Image-->
+                <img class="img-fluid rounded mb-1" height="200px" width="300px" src="../schemes/sc.jpg" alt="..." />
+                <!-- Portfolio Modal - Text-->
+                <p class="mb-4 modals">
+
+                <p>Senior Citizen Saving Scheme (SCSS) is a savings scheme introduced by the Government of India for
+                  individuals above 60 years of age. The scheme provides a regular source of income to senior citizens
+                  and offers an attractive rate of interest.</p><br>
+                <p>Under the SCSS, individuals can invest a maximum of Rs. 15 lakh, and the interest rate is revised
+                  every quarter. The current interest rate is 7.4% per annum. The scheme has a tenure of 5 years, which
+                  can be extended by another 3 years.</p><br>
+                <p>The SCSS provides several benefits to senior citizens, including regular income, high returns, tax
+                  benefits, and low risk. The scheme is also backed by the Government of India, which makes it a safe
+                  and secure investment option for senior citizens.</p><br>
+                <p>To invest in the SCSS, individuals need to have a savings account in a post office or a bank. They
+                  also need to provide proof of age and identity, such as a passport, driving license, or Aadhaar card.
+                </p><br>
+                <p>Overall, the Senior Citizen Saving Scheme is an excellent investment option for senior citizens who
+                  are looking for a safe and secure way to invest their savings and earn a regular income. The scheme
+                  offers attractive returns and several benefits, making it an ideal choice for individuals above 60
+                  years of age.</p><br>
+
+                </p>
+                <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
+                  <i class="fas fa-times fa-fw"></i> Close Window
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Portfolio 7 -->
+
+
+  <div class="portfolio-modal modal fade" id="portfolioModal7" tabindex="-1" aria-labelledby="portfolioModal7"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center pb-5">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <!-- Portfolio Modal - Title-->
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">
+                  Pradhan Mantri Jan Dhan Yojana (PMJDY)
+                </h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-icon">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Modal - Image-->
+                <img class="img-fluid rounded mb-1" height="200px" width="300px" src="../schemes/PMJDY.jpg" alt="..." />
+                <!-- Portfolio Modal - Text-->
+                <p class="mb-4 modals">
+
+                <p>Pradhan Mantri Jan Dhan Yojana (PMJDY) is a financial inclusion program launched by the Government of
+                  India on 28th August 2014. The scheme aims to provide access to financial services, such as bank
+                  accounts, insurance, and pensions, to the unbanked population of India, particularly those from
+                  lower-income groups. The key objectives of PMJDY are to ensure financial inclusion, provide banking
+                  services to the unbanked, and promote savings among individuals.</p><br>
+
+                <p>PMJDY seeks to bring the unbanked population into the formal financial system. It aims to provide
+                  basic banking services to all households across the country, including rural and urban areas.</p>
+                <br>
+
+                <p>PMJDY offers zero balance savings accounts, which means that individuals can open a bank account
+                  without any minimum balance requirement. This enables even those with low incomes to have access to
+                  banking services.</p><br>
+
+                <p>PMJDY encourages the transfer of government subsidies and benefits directly into the bank accounts of
+                  beneficiaries. This reduces leakages and ensures efficient delivery of welfare schemes.</p><br>
+
+                <p>PMJDY also emphasizes financial literacy and awareness programs to educate account holders about
+                  banking services, benefits, and various government schemes. This promotes financial empowerment and
+                  encourages individuals to make informed financial decisions.</p><br>
+
+
+
+                </p>
+                <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
+                  <i class="fas fa-times fa-fw"></i> Close Window
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--PORTFOLIO 8 -->
+  <div class="portfolio-modal modal fade" id="portfolioModal8" tabindex="-1" aria-labelledby="portfolioModal8"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center pb-5">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <!-- Portfolio Modal - Title-->
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">
+                  PMJJBY
+                </h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-icon">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Modal - Image-->
+                <img class="img-fluid rounded mb-1" height="200px" width="300px" src="../schemes/PMJJBY.png" alt="..." />
+                <!-- Portfolio Modal - Text-->
+                <p class="mb-4 modals">
+
+                <p>PMJJBY provides life insurance coverage for one year, renewable annually. The coverage period is from
+                  1st June to 31st May of the next year. In case of the insured person's unfortunate demise during this
+                  period, a death benefit is paid to the nominee.</p><br>
+
+                <p>The premium for PMJJBY is highly affordable, making it accessible to individuals from all sections of
+                  society. As of September 2021, the premium is set at Rs. 330 per annum.</p><br>
+
+                <p>Individuals between the ages of 18 and 50 years are eligible to join the scheme. Once enrolled,
+                  individuals can continue to avail the benefits until the age of 55 years, even if they discontinue
+                  payment of premiums after the age of 50.</p><br>
+
+                <p>The coverage under PMJJBY is renewable on an annual basis. To continue availing the benefits,
+                  individuals need to ensure that the premium is paid regularly and their bank account has sufficient
+                  balance for auto-debit of the premium amount.</p><br>
+
+                <p>Individuals enrolling in PMJJBY need to designate a nominee who will receive the death benefit in
+                  case of the insured person's demise. It is important to keep the nominee details updated to ensure a
+                  smooth claim settlement process.</p><br>
+                </p>
+                <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
+                  <i class="fas fa-times fa-fw"></i> Close Window
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="portfolio-modal modal fade" id="portfolioModal9" tabindex="-1" aria-labelledby="portfolioModal9"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center pb-5">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <!-- Portfolio Modal - Title-->
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">
+                  Pradhan Mantri Awas Yojana (PMAY)
+                </h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-icon">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Modal - Image-->
+                <img class="img-fluid rounded mb-1" height="200px" width="300px" src="../schemes/PMAY.jpg" alt="..." />
+                <!-- Portfolio Modal - Text-->
+                <p class="mb-4 modals">
+
+                <p>Pradhan Mantri Awas Yojana (PMAY) is a government initiative launched by the Government of India to
+                  provide affordable housing to all eligible beneficiaries by the year 2022. The scheme aims to address
+                  the housing needs of the urban and rural poor in India.</p><br>
+
+                <p>PMAY provides financial assistance to eligible beneficiaries to acquire or construct affordable
+                  houses. The scheme focuses on economically weaker sections (EWS), low-income groups (LIG), and
+                  middle-income groups (MIG) to ensure housing for all segments of society.</p><br>
+
+                <p>PMAY offers a Credit Linked Subsidy Scheme to provide interest subsidies on home loans. The interest
+                  subsidy is available for EWS, LIG, and MIG beneficiaries based on their income category.</p><br>
+
+                <p>PMAY promotes women empowerment by ensuring the participation of female applicants and co-applicants
+                  in the scheme. Women are given preference in the ownership of houses under PMAY.</p><br>
+
+                <p>Pradhan Mantri Awas Yojana - Gramin (PMAY-G): PMAY-G is a rural component of PMAY that aims to
+                  provide pucca houses to eligible rural households. It focuses on beneficiaries living in kutcha houses
+                  or without access to sanitation facilities.</p><br>
+
+
+                </p>
+                <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
+                  <i class="fas fa-times fa-fw"></i> Close Window
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="portfolio-modal modal fade" id="portfolioModal10" tabindex="-1" aria-labelledby="portfolioModal10"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center pb-5">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <!-- Portfolio Modal - Title-->
+                <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">
+                  Pradhan Mantri Kaushal Vikas Yojana (PMKVY)
+                </h2>
+                <!-- Icon Divider-->
+                <div class="divider-custom">
+                  <div class="divider-custom-line"></div>
+                  <div class="divider-custom-icon">
+                    <i class="fas fa-star"></i>
+                  </div>
+                  <div class="divider-custom-line"></div>
+                </div>
+                <!-- Portfolio Modal - Image-->
+                <img class="img-fluid rounded mb-1" height="200px" width="300px" src="../schemes/PMKVY.jpg" alt="..." />
+                <!-- Portfolio Modal - Text-->
+                <p class="mb-4 modals">
+
+                <p>Pradhan Mantri Kaushal Vikas Yojana (PMKVY) is a flagship skill development scheme launched by the
+                  Government of India to provide skill training to the country's youth and increase their employability.
+                  The scheme aims to create a skilled workforce that meets the industry's requirements and fosters
+                  entrepreneurship.</p><br>
+
+                <p>PMKVY is implemented by the Ministry of Skill Development and Entrepreneurship (MSDE) through the
+                  National Skill Development Corporation (NSDC) and other approved training partners. It targets youth
+                  between the ages of 16 and 35 years, with a special emphasis on unemployed and economically
+                  disadvantaged individuals.</p><br>
+
+                <p>The scheme offers skill training programs based on National Occupational Standards (NOS) developed by
+                  industry experts. These programs cover a wide range of sectors, including manufacturing, construction,
+                  retail, hospitality, healthcare, agriculture, and many more.</p><br>
+
+                <p>PMKVY recognizes the prior learning and skills of individuals through the Recognition of Prior
+                  Learning (RPL) component. It provides short-term skill training programs, typically ranging from 150
+                  to 300 hours, to ensure quick employability.</p><br>
+
+                <p>Upon successful completion of the training program and assessment, beneficiaries receive a nationally
+                  and globally recognized skill certificate. PMKVY also facilitates placement support through its
+                  network of training partners and industry collaborations.</p><br>
+
+
+                </p>
+                <button class="btn btn-primary" href="#!" data-bs-dismiss="modal">
+                  <i class="fas fa-times fa-fw"></i> Close Window
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap core JS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Core theme JS-->
+  <script src="../js/scripts.js" type="application/json"></script>
+  <script src="../js/main.js" type="application/json"></script>
+
+  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+  <!-- * *                               SB Forms JS                               * *-->
+  <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+  <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+</body>
+
+</html>

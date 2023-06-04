@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Sign Up Form by Colorlib</title>
+
+	<!-- Font Icon -->
+	<link rel="stylesheet" href="../fonts/material-icon/css/material-design-iconic-font.min.css">
+
+	<!-- Main css -->
+	<link rel="stylesheet" href="../css/style.css">
+	<script src="../js/main.js" defer></script>
+</head>
+
+<body>
+
+	<div class="main">
+
+		<!-- Sign up form -->
+		<section class="signup">
+			<div class="container">
+				<div class="signup-content">
+					<div class="signup-form">
+						<h2 class="form-title">Sign up</h2>
+
+						<form method="POST" class="register-form" id="register-form">
+							<div class="form-group">
+								<label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label> <input
+									type="text" name="name" id="name" placeholder="Your Name" />
+							</div>
+							<div class="form-group"> 
+								<label for="email"><i class="zmdi zmdi-email material-icons-name"></i></label> <input type="email"
+									name="email" id="email" placeholder="Your Email" />
+							</div>
+							<div class="form-group">
+								<label for="BirthDate"><i class="zmdi zmdi-calendar material-icons-name"></i></label> <input type="date" name="date" id="date" placeholder="Date" />
+							</div>
+							<div style="display:flex ;font-weight:400;gap:0rem; margin-bottom:1rem ;">
+								Male:<input type="radio" name="gender" id="male" value="male"/>
+								Female:<input type="radio" name="gender" id="female" value="female" />
+								Other:<input type="radio" name="gender" id="other" value="other"/>
+							</div>
+							<div class="form-group">
+								<label for="password"><i class="zmdi zmdi-lock-outline material-icons-name"></i></label>
+								<input type="password" name="password" id="password" placeholder="Password" />
+							</div>
+							<div class="form-group">
+								<label for="cpassword"><i class="zmdi zmdi-lock-outline material-icons-name"></i></label>
+								<input type="password" name="cpassword" id="cpassword" placeholder="confirm Password" />
+							</div>
+							<div class="form-group">
+								<label for="cast"><i class="zmdi zmdi-account material-icons-name"></i></label>
+								<input type="text" name="cast" id="cast" placeholder="ex:general,obc,sc,st" />
+							</div>
+							<div class="form-group">
+								<label for="income"><i class="zmdi zmdi-money material-icons-name"></i></label>
+								<input type="text" name="income" id="income" placeholder="Income" />
+							</div>
+							<div class="form-group">
+								<label for="occupation"><i class="zmdi zmdi-account material-icons-name"></i></label>
+								<input type="text" name="occupation" id="occupation" placeholder="occupation" />
+							</div>
+							<div class="form-group">
+								<input type="checkbox" name="agree-term" id="agree-term" class="agree-term" required />
+								<label style="font-size: 1rem;" for="agree-term"
+									class="label-agree-term"><span><span></span></span>I
+									agree all statements in <a href="#" class="term-service"
+										style="font-size: 1rem;">Terms
+										of service</a></label>
+							</div>
+							<div class="form-group form-button">
+								<input type="submit" name="signup" id="signup" class="form-submit" />
+							</div>
+						</form>
+					</div>
+					<div class="signup-image">
+						<figure>
+							<img src="../images/signup-image.jpg" alt="sing up image">
+						</figure>
+						<a href="login" class="signup-image-link" style="font-size: 1rem;">I am already
+							member</a>
+					</div>
+				</div>
+			</div>
+		</section>
+
+
+	</div>
+	<!-- JS -->
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+</body>
+<!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
