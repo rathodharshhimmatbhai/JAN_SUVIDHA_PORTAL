@@ -45,10 +45,10 @@ document.addEventListener('DOMContentLoaded', function() {
     Signup.addEventListener("click", async(e) => {
         e.preventDefault();
         let formData = new FormData(registerform);
-        console.log(formData);
+        // console.log(formData);
         let Values = [...formData.entries()];
         const [name,email,birthdate,gender,password,cpassword,cast,income,occupation]=Values;
-        console.log(name[1]);
+        // console.log(name[1]);
         const res=await fetch("http://127.0.0.1:9000/register",{
             method:"POST",
             headers:{
@@ -59,14 +59,14 @@ document.addEventListener('DOMContentLoaded', function() {
             })
             })
             const final_res=await res.json();
-            console.log(final_res);
+            // console.log(final_res);
             if(res.status===404 || res.status===422 || res.status==500 || !final_res){
                 window.alert("invalid Registration");
                 // console.log("invalid Registration ");
             }
             else{
                 window.alert("valid Registration");
-                // console.log("valid Registration");
+                console.log("valid Registration");
                 window.location.href = "login";
             }
     });
@@ -85,7 +85,7 @@ Signin.addEventListener("click", async(e) => {
     const values = [...formData.entries()];
     const email=values[0][1];
     const password=values[1][1];
-    console.log(email,password);
+    // console.log(email,password);
     const res=await fetch("http://127.0.0.1:9000/login",{
         method:"POST",
         headers:{

@@ -25,7 +25,7 @@ router.get('/register', (req, res) => {
 });
 router.get('/index',async(req,res)=>{
       login="logout";
-      console.log(Cast.toLowerCase());
+    //   console.log(Cast.toLowerCase());
       if(Cast.toLowerCase()==="general"){
       res.render('index',{arr:GENERAL,login,user:username,income,Cast,occupation});
       }
@@ -40,7 +40,7 @@ router.get('/index',async(req,res)=>{
       }
 })
 router.post("/register", async(req,res)=>{
-    console.log(req.body);
+    // console.log(req.body);
     const{ name,email,birthdate,gender,password,cpassword,cast,income,occupation}=req.body;
     if(!name || !email || !birthdate || !gender || !password || !cpassword || !cast || !income || !occupation){
         return res.status(404).json({error:"Please fill reuired field"});
@@ -53,7 +53,7 @@ router.post("/register", async(req,res)=>{
         const user=new User({name,email,birthdate,gender,password,cpassword,cast,income,occupation});
         const Data=await user.save();
         
-        console.log(Data);
+        // console.log(Data);
         if(Data){
             res.status(201).json({message:"user registered successfully"});
         }
@@ -80,7 +80,7 @@ router.post("/login",async(req,res)=>{
         Cast=Data.cast;
         const isValid=await bcrypt.compare(password,Data.password);
         const token=await Data.generateAuthToken();
-        console.log(token);
+        // console.log(token);
         res.cookie("jwttoken",token,{
             expires:new Date(Date.now() + 2589200),
             httpOnly : true
